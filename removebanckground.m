@@ -1,6 +1,6 @@
 a=fitsread('E:\FITS\20140421_130433528.fit');
-E_a=mean(a(:));%ÆÚÍû
-D_a=std2(a);%¾ù·½²î
+E_a=mean(a(:));%æœŸæœ›
+D_a=std2(a);%å‡æ–¹å·®
 k=E_a+D_a;
 for i=1:1024    %
     for j=1:1024
