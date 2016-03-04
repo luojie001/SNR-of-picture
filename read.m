@@ -1,12 +1,12 @@
 file_path='E:\FITS';
 img_path_list=dir(fullfile(file_path,'*.fit'));
-%»ñÈ¡¸ÃÎÄ¼ş¼ĞÖĞËùÓĞµÄfit¸ñÊ½µÄÍ¼Ïñ
+%è·å–è¯¥æ–‡ä»¶å¤¹ä¸­æ‰€æœ‰çš„fitæ ¼å¼çš„å›¾åƒ
 img_num=length(img_path_list);
-%»ñÈ¡Í¼Ïñ×ÜÊıÁ¿
-if img_num>0 %Âú×ãÌõ¼şµÄÍ¼Ïñ
+%è·å–å›¾åƒæ€»æ•°é‡
+if img_num>0 %æ»¡è¶³æ¡ä»¶çš„å›¾åƒ
 for j=1:img_num
-image_name=img_path_list(j).name;%Í¼ÏñÃû
-image =fitread(fullfile(file_path,image_name));
-fpingtf('%d %d %s\n',i,j,strcat(file_path,image_name));
-%ÏÔÊ¾ÕıÔÚ´¦ÀíµÄÍ¼ÏñÃû
+image_name=img_path_list(j).name;%å›¾åƒå
+image =fitsread(fullfile(file_path,image_name));
+fprintf('%d %d %s\n',i,j,strcat(file_path,image_name));
+%æ˜¾ç¤ºæ­£åœ¨å¤„ç†çš„å›¾åƒå
 end
