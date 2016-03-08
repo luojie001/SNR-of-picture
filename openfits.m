@@ -1,18 +1,19 @@
 function [img] =openfits( file_path)
-%å‡½æ•°å¯ä»¥è¿è¡Œ  åŠŸèƒ½ä¹Ÿèƒ½å®ç°  å¤ªæ…¢ è¦ä¸¤ä¸‰åˆ†é’Ÿ
+%¶ÁÈ¡ÖÆ¶¨Â·¾¶ÏÂµÄ*.fitÎÄ¼ş
 img_path_list=dir(fullfile(file_path,'*.fit'));
-%è·å–è¯¥æ–‡ä»¶å¤¹ä¸­æ‰€æœ‰çš„fitæ ¼å¼çš„å›¾åƒ
+%»ñÈ¡¸ÃÎÄ¼ş¼ĞÖĞËùÓĞµÄfit¸ñÊ½µÄÍ¼Ïñ
 img_num=length(img_path_list);
-%è·å–å›¾åƒæ€»æ•°é‡
-img=zeors(1024,1024,450);%å®šä¹‰ä¸‰ç»´æ•°ç»„
-if img_num>0 %æ»¡è¶³æ¡ä»¶çš„å›¾åƒ
-for j=1:img_num
-image_name=img_path_list(j).name;%å›¾åƒå
-image=fitsread(fullfile(file_path,image_name));
-img(:,:,j)=image;
-fprintf('%d %d %s\n',1i,j,strcat(file_path,image_name));
-%æ˜¾ç¤ºæ­£åœ¨å¤„ç†çš„å›¾åƒå
+%»ñÈ¡Í¼Ïñ×ÜÊıÁ¿
+    if img_num>0 %Âú×ãÌõ¼şµÄÍ¼Ïñ
+        for j=1:img_num
+        image_name=img_path_list(j).name;%Í¼ÏñÃû
+        image=fitsread(fullfile(file_path,image_name));
+        [m,n]=size(image);
+        img(:,:,j)=zeros(m,n);
+        img(:,:,j)=image;
+        fprintf('%d %d %s\n',1i,j,strcat(file_path,image_name));
+        %ÏÔÊ¾ÕıÔÚ´¦ÀíµÄÍ¼ÏñÃû
+        end
+    else fprintf('error------no *.fits in this file') ;   
+    end
 end
-end
-end
-
