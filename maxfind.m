@@ -8,5 +8,17 @@ s2=abs(s1);
 image=(s1+s2)*0.5;%去背景后的图片 
 E_i=mean(image(:));%真实图片的期望
 [xi,yi]=find(image==max(max(image)));%最大值所在点的坐标
-p=55;%选取的区域中心到边界的距离  这里先手动选取
-imagem=image(xi-p:xi+p,yi-p:yi+p);%选取的区域
+n=0;s=0;w=0;e=0;
+while (image(xi-n,yi))>0
+    n=n+1;
+end
+while (image(xi+s,yi))>0
+    s=s+1;
+end
+while (image(xi,yi-w))>0
+    w=w+1;
+end
+while (image(xi,yi+e))>0
+    e=e+1;
+end
+imagem=image(xi-n:xi+s,yi-w:yi+e);%选取的区域
