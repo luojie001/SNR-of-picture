@@ -2,7 +2,7 @@ clear;
 clear all;
 clc;
 
-f=fitsread('E:\FITS\20140421_130433528.fit');
+f=fitsread('E:\FITS\20140421_130447700.fit');
 E_a=mean(f(:));%期望
 D_a=std2(f);%均方差
 %*******去背景********
@@ -31,7 +31,7 @@ S=zeros(3,3);%取3*3的模板
 ph=zeros(n+s-2,w+e-2);%用ph来存放 所求的std
 for k=1:n+s-2
     for l=1:w+e-2
-    S=imagemax(k:k+2,l:l+2);
+    S=f(k:k+2,l:l+2);
     c=std(S(:));
      ph(k,l)=c;
     end
