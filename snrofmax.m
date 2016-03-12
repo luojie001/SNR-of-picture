@@ -27,8 +27,8 @@ while (image(xi,yi+e))>0
     e=e+1;
 end
 imagemax=f(xi-n:xi+s,yi-w:yi+e);%选取的区域
-S=zeros(3,3);
-ph=zeros(n+s-2,w+e-2);
+S=zeros(3,3);%取3*3的模板
+ph=zeros(n+s-2,w+e-2);%用ph来存放 所求的std
 for k=1:n+s-2
     for l=1:w+e-2
     S=imagemax(k:k+2,l:l+2);
