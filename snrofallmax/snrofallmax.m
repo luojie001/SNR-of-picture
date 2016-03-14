@@ -4,7 +4,7 @@ img_path_list=dir(fullfile(file_path,'*.fit'));
 %获取该文件夹中所有的fit格式的图像
 img_num=length(img_path_list);
 %获取图像总数量
-  c=zeros(1,450);
+  c=zeros(1,img_num);
     if img_num>0 %满足条件的图像
         for j=1:img_num
         image_name=img_path_list(j).name;%图像名
