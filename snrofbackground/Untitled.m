@@ -1,0 +1,1 @@
+f=snrallback('F:\Awen\FITS');
