@@ -7,10 +7,12 @@ D_f=std2(f);
 [m,n]=find(E_f+3*D_f<f&f<f_max-2*D_f);
 num=size(m);
 %除去边界点
-f3=zeros(1024,1024);
+[M,N]=size(f);
+f3=zeros(M,N);
+s_bor=100;
 for i=1:num(1,1)
-    if 100<m(i)&m(i)<924
-        if 100<n(i)&n(i)<924
+    if s_bor<m(i)&m(i)<M-s_bor
+        if s_bor<n(i)&n(i)<N-s_bor
         f3(m(i),n(i))=1;
         end
     end
@@ -26,7 +28,6 @@ fbo(10:20,10:20)=0;
 %所找区域满足条件
 while  f(x(j),y(j))~=max(max(fz))&j<num1(1,1)&(max(max(fbo))~=0) 
      j=j+1;
-     fo=fb(x(j)+8,y(j)-8);
      fz=f(x(j)-k:x(j)+k,y(j)-k:y(j)+k);  
      fbz=fb(x(j)-k:x(j)+k,y(j)-k:y(j)+k);
      fbo=fbz;
