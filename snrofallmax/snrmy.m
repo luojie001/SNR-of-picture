@@ -1,4 +1,4 @@
-function [snr] =snrmy(f)
+ function [snr] =snrmy(f)
 %求信噪比
 x=8;%局部区域所选的大小
 [m,n]=size(f);
@@ -12,5 +12,5 @@ end
 phmax=max(max(ph));
 phmin=min(min(ph));
 snr=10*log(phmax/phmin);
+snr=snr*1.83-149.33;%修正
 end
-
